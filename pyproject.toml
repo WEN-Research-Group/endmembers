@@ -1,0 +1,29 @@
+[project]
+name =  "endmembers"
+authors = [
+    {name = "Zanchenling Wang", email = "zwang505@syr.edu"},
+]
+description = "Examples for solving end-member problem in geoscience with archetypal analysis"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.12",
+    "Private :: Do Not Upload",
+]
+requires-python = "~=3.12"
+dynamic = ["version"]
+dependencies = [
+    "ipython",
+    "jupyterlab",
+    "ipympl~=0.9.4",
+    "notebook",
+    "numpy",
+    "pandas[excel]",
+    "scipy",
+    "scikit-learn",
+    "spectral",
+    "matplotlib",
+    "seaborn",
+    "archetypes@git+https://github.com/wangzcl/archetypes#egg=dev",
+]
