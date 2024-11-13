@@ -2,6 +2,13 @@
 
 Inferring End-members from Geoscience Data using Simplex Projected Gardient Descent-Archetypal Analysis
 
+## Usage
+1. `git clone` the repo, or download and unzip
+2. `cd` the root directory of the project
+3. create a Python virtual environment
+4. `pip install -e .` to install the current project and the module `endmember_utils`
+5. Now you can run scripts or notebooks with the current virtualenv
+
 ## Project Organization
 ```bash
 .
