@@ -46,6 +46,7 @@ Inferring End-members from Geoscience Data using Simplex Projected Gardient Desc
 │   ├── jasper_results.pdf
 │   ├── nazca_results.pdf
 │   ├── panola_results.pdf
+│   ├── nazca_other_perspectives.pdf
 │   ├── synthetic_mixing_proportions.pdf
 │   └── synthetic_results.pdf
 ├── pyproject.toml
@@ -79,6 +80,7 @@ Inferring End-members from Geoscience Data using Simplex Projected Gardient Desc
 │   │   └── print_synthetic_endmember_error.py
 │   └── plots
 │       ├── plot_aa_basic_concepts.py
+│       ├── plot_nazca_other_perspectives.py
 │       ├── plot_synthetic_data_results.py
 │       └── plot_synthetic_mixing_proportions.py
 └── src # source code to help the analysis
