@@ -10,6 +10,11 @@ Inferring End-members from Geoscience Data using Simplex Projected Gardient Desc
 5. Now you can run scripts or notebooks with the current virtualenv
 
 ## Project Organization
+
+Source code of Archetypal Analysis can be found in [aleixalcacer/archetypes](https://github.com/aleixalcacer/archetypes)
+
+Real-world examples are in [/examples/demo.ipynb](/examples/demo.ipynb)
+
 ```bash
 .
 ├── LICENSE
