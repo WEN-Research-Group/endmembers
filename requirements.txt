@@ -26,8 +26,6 @@ cycler==0.12.1
 debugpy==1.8.5
 decorator==5.1.1
 defusedxml==0.7.1
-# Editable install with no version control (endmembers==0.0.0)
--e /Users/zwang505/Code/endmembers
 et-xmlfile==1.1.0
 etils==1.9.2
 executing==2.0.1
