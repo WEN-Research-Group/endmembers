@@ -1,4 +1,6 @@
-# Source
+# Files
+
+NOTE: In all files, units are μmol/L for dissolved silica, μeq/l for others.
 
 `panola_data.csv`:
 
@@ -6,16 +8,13 @@ Retrieved from https://github.com/Estherrrrrxu/CHEMMA
 
 `panola_end_members.csv`:
 
-Compiled from Hooper et al, 1990, Table 3 (median values)
+Soil water end-members (field study), compiled by the repo creator from Hooper et al (1990), Table 3 (median values)
 
-The Mg concentration in the organic end-member is different from the value
-reported by X&H.
-
-Units: μmol/L for dissolved silica, μeq/l for others.
+NOTE: The Mg concentration in the organic end-member in Hooper (1990) is different from the value reported by Xu Fei and Harman (2022). We use Hooper (1990)'s value.
 
 `xufei2022_endmembers.csv`:
 
-Compiled from Xu Fei and Harman, 2022, Table 1 (3 clusters and mean values)
+End-members inferred using CHEMMA, compiled by the repo creator from Xu Fei and Harman (2022), Table 1 (3 clusters and mean values)
 
 # References:
 
