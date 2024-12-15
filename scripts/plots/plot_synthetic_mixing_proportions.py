@@ -1,3 +1,7 @@
+"""
+Compare true and fitted mixing proportions for synthetic datasets.
+"""
+
 import numpy as np
 import pandas as pd
 from scipy.stats import linregress

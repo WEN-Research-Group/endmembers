@@ -1,3 +1,7 @@
+"""
+Plot the basic concepts of archetypal analysis (AA) using synthetic data.
+"""
+
 import numpy as np
 from scipy.spatial import ConvexHull
 import matplotlib.pyplot as plt

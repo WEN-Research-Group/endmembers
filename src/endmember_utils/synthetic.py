@@ -1,3 +1,7 @@
+"""
+Utilities for generating synthetic data.
+"""
+
 from typing import Iterable
 import numpy as np
 from numpy.typing import ArrayLike

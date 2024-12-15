@@ -1,3 +1,7 @@
+"""
+Utilities for plotting.
+"""
+
 from scipy.spatial import ConvexHull
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon

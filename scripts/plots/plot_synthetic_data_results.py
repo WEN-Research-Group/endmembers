@@ -1,3 +1,7 @@
+"""
+Visualize the results of the synthetic data experiments, comparing the endmembers estimated by SPGD-AA, NMF, and CHEMMA with the true endmembers in 3D PC space.
+"""
+
 from itertools import repeat
 import numpy as np
 import pandas as pd

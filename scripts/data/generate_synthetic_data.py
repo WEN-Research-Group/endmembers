@@ -1,3 +1,7 @@
+"""
+Generate synthetic data for the endmember extraction example.
+"""
+
 import numpy as np
 import pandas as pd
 from endmember_utils.synthetic import synthetic

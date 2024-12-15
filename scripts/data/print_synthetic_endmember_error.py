@@ -1,3 +1,7 @@
+"""
+Compute the error between the true endmembers and the fitted endmembers for the synthetic datasets.
+"""
+
 import numpy as np
 import pandas as pd
 

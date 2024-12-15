@@ -1,3 +1,7 @@
+"""
+Match CHEMMA endmembers to the field endmembers.
+"""
+
 import numpy as np
 import pandas as pd
 from endmember_utils import match_endmembers

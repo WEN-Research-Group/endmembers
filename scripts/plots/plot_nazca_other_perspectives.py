@@ -1,3 +1,7 @@
+"""
+Plot the Nazca endmember data in 3D PCA space from different perspectives.
+"""
+
 import pandas as pd
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import normalize
