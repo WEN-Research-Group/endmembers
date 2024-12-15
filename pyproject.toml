@@ -25,5 +25,11 @@ dependencies = [
     "spectral",
     "matplotlib",
     "seaborn",
-    "archetypes@git+https://github.com/wangzcl/archetypes#egg=dev",
+    "archetypes@git+https://github.com/wangzcl/archetypes",
+]
+
+[project.optional-dependencies]
+jupyter = [
+    "jupyter",
+    "ipympl",
 ]
