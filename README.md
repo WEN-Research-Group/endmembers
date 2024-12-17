@@ -2,13 +2,17 @@
 
 ## Introduction
 
-This repo is affiliated with the manuscript "**Inferring End-members from Geoscience Data using Simplex Projected Gardient Descent-Archetypal Analysis**" that was submitted to _JGR: Machine Learning and Computation_" in Dec, 2024.
+This repo is affiliated with the manuscript "**Inferring End-members from Geoscience Data using Simplex Projected Gardient Descent-Archetypal Analysis**" submitted to _JGR: Machine Learning and Computation_" in Dec, 2024. More information will be avaliable soon.
 
 Geological and environmental samples often reflect the integrated results of multiple sources and/or processes. When each source/process has its unique features, we conceptualize them as "end-members", and model samples as mixtures of end-members, and evaluate their mixing proportions to quantitatively estimate the contributions of different sources. This technqiue has been widely used in many fields like hydrogeochemistry ([_e. g._ Hooper 1990](https://doi.org/10.1016/0022-1694(90)90131-G)), sedimentology ([_e. g._  Vandenberghe 2013](https://doi.org/10.1016/j.earscirev.2013.03.001)) and remote sensing ([_e. g._  Bioucas-Dias et al 2012](https://doi.org/10.1109/JSTARS.2012.2194696)). This is sometimes called end-member mixing analysis (EMMA).
 
 Conventional supervised EMMA relies on known end-member properties, but often we have little or no information about them. Many existing unsupervised EMMA approaches that infer end-members from data like NMF ([_e. g._  Shaughnessy et al 2021](https://doi.org/10.5194/hess-25-3397-2021)) are often less accessible and interpretable. We developed Simplex Projected Gardient Descent-Archetypal Analysis (SPGD-AA) to overcome these challenges. SPGD-AA is based on archetypal analysis (AA) ([Cutler and Breiman, 1994](https://doi.org/10.1080/00401706.1994.10485840) and [Mørup and Hansen, 2012](https://doi.org/10.1016/j.neucom.2011.06.033)) and fast unit simplex projection ([Condat 2016](https://doi.org/10.1007/s10107-015-0946-6)).
 
+![SPGD-AA](/images/aa_basic_concepts.pdf)
+
 We apply SPGD-AA to synthetic and real-world datasets. Demo code is in [examples/demo.ipynb](/examples/demo.ipynb). Real world datasets including Panola Mountain stream chemistry ([Hooper 1990](https://doi.org/10.1016/0022-1694(90)90131-G)), Nazca Plate deep-sea sediment ([Dymond 1981](https://doi.org/10.1130/MEM154-p133)) and Jasper Ridge hyperspectral image ([Zhu 2017](https://arxiv.org/abs/1708.05125)). More details are available in the [data/](/data/) folder, especially the README files.
+
+The end-members inferred using SPGD-AA of these datasets are stored in the [results/](/results/) folder. We compared them with end-members in previous studies, proving SPGD-AA's capability. You can find some visualizations of our results in the [images/](/images/) folder.
 
 **This repo is for demostration of SPGD-AA applications only. The source code SPGD-AA is hosted in GitHub repo [aleixalcacer/archetypes](https://github.com/aleixalcacer/archetypes).**
 
@@ -110,4 +114,4 @@ Real-world examples are in [examples/demo.ipynb](/examples/demo.ipynb).
 
 ## Contributing
 
-This repo is not intended to be a community-driven python project. Rather, it is created to demonstrate some simple examples and applications of SPGD-AA in EMMA. We recommend those who are interested to contribute to the `archetypes` package. However, if you do see any deficiencies or have any suggestions, issues and pull requests are welcome :)
+This repo is not intended to be a community-driven python project. Rather, it is created to demonstrate some simple examples and applications of SPGD-AA in EMMA. **We recommend those who are interested to join us to contribute to the `archetypes` package.** However, if you do see any deficiencies or have any suggestions in this repo, issues and pull requests are welcome :)
