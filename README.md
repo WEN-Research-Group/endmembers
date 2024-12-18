@@ -112,4 +112,4 @@ Real-world examples are in [examples/demo.ipynb](/examples/demo.ipynb).
 
 ## Contributing
 
-This repo is not intended to be a community-driven python project. Rather, it is created to demonstrate some simple examples and applications of SPGD-AA in EMMA. **We recommend those who are interested to join us to contribute to the `archetypes` package.** However, if you do see any deficiencies or have any suggestions in this repo, issues and pull requests are welcome :)
+This repo is not intended to be a community-driven python project. Rather, it is created to demonstrate some simple examples and applications of SPGD-AA in EMMA. **We recommend those who are interested to join us to contribute to the `archetypes` package.** However, if you do see any deficiencies in the repo or have any suggestions, issues and pull requests are welcome :)
