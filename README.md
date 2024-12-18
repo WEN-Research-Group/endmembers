@@ -8,13 +8,11 @@ Geological and environmental samples often reflect the integrated results of mul
 
 Conventional supervised EMMA relies on known end-member properties, but often we have little or no information about them. Many existing unsupervised EMMA approaches that infer end-members from data like NMF ([_e. g._  Shaughnessy et al 2021](https://doi.org/10.5194/hess-25-3397-2021)) are often less accessible and interpretable. We developed Simplex Projected Gardient Descent-Archetypal Analysis (SPGD-AA) to overcome these challenges. SPGD-AA is based on archetypal analysis (AA) ([Cutler and Breiman, 1994](https://doi.org/10.1080/00401706.1994.10485840) and [Mørup and Hansen, 2012](https://doi.org/10.1016/j.neucom.2011.06.033)) and fast unit simplex projection ([Condat 2016](https://doi.org/10.1007/s10107-015-0946-6)).
 
-![SPGD-AA](/images/aa_basic_concepts.pdf)
-
 We apply SPGD-AA to synthetic and real-world datasets. Demo code is in [examples/demo.ipynb](/examples/demo.ipynb). Real world datasets including Panola Mountain stream chemistry ([Hooper 1990](https://doi.org/10.1016/0022-1694(90)90131-G)), Nazca Plate deep-sea sediment ([Dymond 1981](https://doi.org/10.1130/MEM154-p133)) and Jasper Ridge hyperspectral image ([Zhu 2017](https://arxiv.org/abs/1708.05125)). More details are available in the [data/](/data/) folder, especially the README files.
 
 The end-members inferred using SPGD-AA of these datasets are stored in the [results/](/results/) folder. We compared them with end-members in previous studies, proving SPGD-AA's capability. You can find some visualizations of our results in the [images/](/images/) folder.
 
-**This repo is for demostration of SPGD-AA applications only. The source code SPGD-AA is hosted in GitHub repo [aleixalcacer/archetypes](https://github.com/aleixalcacer/archetypes).**
+**This repo is for demonstration of SPGD-AA applications only. The source code SPGD-AA is hosted in GitHub repo [aleixalcacer/archetypes](https://github.com/aleixalcacer/archetypes).**
 
 ## Installation
 Requires: Python 3.12
