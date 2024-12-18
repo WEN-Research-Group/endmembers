@@ -36,8 +36,6 @@ def synthetic(
         mean ``endmembers`` and standard deviation ``endmember_uncertainty``.
         if 'uniform', endmembers are sampled from a uniform distribution between
         ``endmembers - endmember_uncertainty`` and ``endmembers + endmember_uncertainty``.
-    proportions : array-like of shape (n_samples, n_endmembers), default=None
-        Mixing proportions. If None, random proportions are generated from a dirichlet distribution.
     dirichlet_alpha : float, default=None
         Concentration parameter of the Dirichlet distribution, applied to each features.
         Higher values will make the proportions more concentrated towards
@@ -55,9 +53,6 @@ def synthetic(
         Synthetic data.
     proportions : ndarray of shape (n_samples, n_endmembers) or pandas.DataFrame
         Mixing proportions.
-    endmembers_noisy : ndarray of shape (n_endmembers, n_features) or pandas.DataFrame
-        Endmembers of each synthetic sample with noise.
-        If ``endmember_uncertainty`` is None, this is the same as ``endmembers``.
     """
     results_to_dataframe = False
     if isinstance(endmembers, pd.DataFrame):

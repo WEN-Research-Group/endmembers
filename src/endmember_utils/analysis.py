@@ -42,6 +42,9 @@ def multi_AA(data: ArrayLike, archetype_numbers: Iterable[int], **aa_kwargs):
 
 
 def normalize_losses(losses):
+    """
+    Divide RSS losses by the first loss (RSS(1)) to normalize them.
+    """
     losses = [rss / losses[0] for rss in losses]
     return losses
 
@@ -96,7 +99,7 @@ def match_endmembers(endmembers, endmembers_fitted, mixing_proportions=None):
     rearranged_endmembers: array-like, shape (n_endmembers, n_features)
         The fitted endmembers with rows rearranged to match `endmembers`.
     rearranged_mixing_proportions: array-like, shape (n_samples, n_endmembers)
-        The rearranged mixing proportions. Only returned if `mixing_proportions` is provided.
+        The rearranged mixing proportions. Returned only if `mixing_proportions` is provided.
     """
     new_index = cosine_similarity(endmembers, endmembers_fitted).argmax(axis=1)
     assert np.unique(new_index).size == new_index.size, "One-to-one mapping not found"

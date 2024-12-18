@@ -87,6 +87,11 @@ class Scatter:
         **kwargs
             Additional keyword arguments to be passed to the `axes.plot` function,
             e.g. `color`, `markersize`, `label`, etc.
+        
+        Returns
+        -------
+        line: matplotlib.lines.Line2D
+            The line object representing the scatter plot.
         """
         X, ax = self._validate_data(X)
         (line,) = ax.plot(
@@ -107,6 +112,11 @@ class Scatter:
         **kwargs
             Additional keyword arguments to be passed to the `axes.scatter` function,
             e.g. `color`, `s` (size), `label`, `c` (color mapping), etc.
+
+        Returns
+        -------
+        scatter: matplotlib.collections.PathCollection
+            The scatter plot object.
         """
         X, ax = self._validate_data(X)
         scatter = ax.scatter(
@@ -125,6 +135,11 @@ class Scatter:
         **kwargs
             Additional keyword arguments to be passed to the `axes.stem` function,
             e.g. `linefmt`, `markerfmt`, `basefmt`, `label`, etc.
+
+        Returns
+        -------
+        stemlines: matplotlib.collections.LineCollection
+            The stem lines object.
         """
         X, ax = self._validate_data(X)
         markerline, stemlines, baseline = ax.stem(
@@ -171,6 +186,11 @@ class Scatter:
         **kwargs
             Additional keyword arguments to be passed to the `axes.plot` function,
             e.g. `markersize`, `label`.
+        
+        Returns
+        -------
+        line: matplotlib.lines.Line2D
+            The line object representing the scatter plot.
         """
         endmembers, ax = self._validate_data(endmembers)
 
@@ -225,7 +245,12 @@ class Scatter:
         labels: list
             The labels for each endmember.
         **kwargs
-            Additional keyword arguments to be passed to the `axes.plot` function,
+            Additional keyword arguments to be passed to the `axes.plot` function.
+
+        Returns
+        -------
+        lines: list of matplotlib.lines.Line2D
+            The line objects representing the scatter plot.
         """
         endmembers, ax = self._validate_data(endmembers)
         if plot_ploygon:
@@ -259,6 +284,11 @@ class Scatter:
             Additional keyword arguments to be passed to the
             `matplotlib.collections.LineCollection` constructor.
             e.g. `colors`, `linestyles`, `linewidths`.
+        
+        Returns
+        -------
+        lines: matplotlib.collections.LineCollection
+            The line object representing the links.
         """
         observed, ax = self._validate_data(observed)
         fitted, ax = self._validate_data(fitted)
@@ -288,6 +318,11 @@ class Scatter:
         **kwargs
             Keyword arguments to be passed to the `matplotlib.patches.Polygon` constructor.
             e.g. `edgecolor`, `linewidth`, `linestyle`.
+        
+        Returns
+        -------
+        hull_polygon: matplotlib.patches.Polygon
+            The polygon object representing the convex hull.
         """
         X, ax = self._validate_data(X)
         assert self.ndim == 2, "only 2D scatter plots are supported."
