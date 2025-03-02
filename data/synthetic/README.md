@@ -8,6 +8,10 @@
 
 ``noisy_endmembers.csv``: values of 8 features (A to H) of 1000 samples. In each of the dataset, we add a Gaussian noise (sigma=0.1) to each end-member, and mix these end-members up, then add a Gaussian noise (sigma=0.1) to the mixed samples.
 
+# Additional Files
+
+``alpha=2_samples.csv`` and ``alpha=2_mixing_proportions.csv`` are similar to the ``noisefree_samples.csv`` and ``mixing_proportions.csv`` files above. The only difference is the mixing proportions are generated with different alpha values for the dirichlet distribution. Same applies to files beginning with ``alpha=4``.
+
 # Source
 
 All the files in this directory are generated using [scripts/data/generate_synthetic_data.py](/scripts/data/generate_synthetic_data.py).
