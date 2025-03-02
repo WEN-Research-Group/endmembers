@@ -83,6 +83,8 @@ def spectral_angle_distances(x, y, output: Literal["rad", "deg"] = "rad") -> flo
 def match_endmembers(endmembers, endmembers_fitted, mixing_proportions=None):
     """
     Match the fitted endmembers to the true endmembers, based on cosine similarity.
+    If `endmembers` is a DataFrame, the returned endmembers and mixing proportions
+    will also be a DataFrame.
 
     Parameters
     ----------

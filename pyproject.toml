@@ -25,7 +25,7 @@ dependencies = [
     "spectral",
     "matplotlib",
     "seaborn",
-    "archetypes@git+https://github.com/wangzcl/archetypes",
+    "archetypes@git+https://github.com/aleixalcacer/archetypes.git@main",
 ]
 
 [project.optional-dependencies]
