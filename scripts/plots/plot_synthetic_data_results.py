@@ -2,14 +2,11 @@
 Visualize the results of the synthetic data experiments, comparing the endmembers estimated by SPGD-AA, NMF, and CHEMMA with the true endmembers in 3D PC space.
 """
 
-from itertools import repeat
-import numpy as np
 import pandas as pd
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 import seaborn as sns
-from archetypes import AA
 from endmember_utils.plot import Scatter
 
 
@@ -36,7 +33,7 @@ def plot_endmember_as_lines(
 
 
 # Panel a
-fig = plt.figure(figsize=(5.7, 6.8))
+fig = plt.figure(figsize=(5.7*1.07, 6.8*1.02))
 gs = fig.add_gridspec(2, 2, height_ratios=[0.36, 1], hspace=1.5)
 
 for i in range(2):
@@ -54,6 +51,9 @@ for i in range(2):
     endmembers_CHEMMA = pd.read_csv(
         f"results/synthetic/CHEMMA_{dataset_name}_endmembers.csv", index_col=0
     )
+    endmembers_EDAA = pd.read_csv(
+        f"results/synthetic/EDAA_{dataset_name}_endmembers.csv", index_col=0
+    )
 
     inner_gs = gs[0, i].subgridspec(2, 2, hspace=0, wspace=0)
     (ax1, ax2), (ax3, ax4) = inner_gs.subplots(sharex=True, sharey=True)
@@ -64,11 +64,11 @@ for i in range(2):
 
     upper_legend_elements = []
     for em, color, linestyle, alpha, label in zip(
-        [endmembers, endmembers_AA, endmembers_NMF, endmembers_CHEMMA],
-        linecolors:=["gray", default_palette[1], default_palette[2], default_palette[0]],
-        linestyles:=["-", "-.", "--", ":"],
-        alphas:=[0.6, 1, 0.8, 1],
-        labels:=["True", "SPGD-AA", "NMF", "CHEMMA"],
+        [endmembers, endmembers_AA, endmembers_NMF, endmembers_CHEMMA, endmembers_EDAA],
+        linecolors:=["gray", default_palette[1], default_palette[2], default_palette[0], default_palette[4]],
+        linestyles:=["-", "-.", "--", ":", (0, (3, 1, 1, 1, 1, 1))],
+        alphas:=[0.6, 1, 0.8, 1, 0.9],
+        labels:=["True", "SPGD-AA", "NMF", "CHEMMA", "EDAA"],
     ):
         plot_endmember_as_lines(axes, em, color=color, linestyle=linestyle, linewidth=1, alpha=alpha)
         upper_legend_elements.append(
@@ -85,7 +85,7 @@ for i in range(2):
     fig.legend(
         handles=upper_legend_elements,
         ncols=2,
-        bbox_to_anchor=(0.04, 0.62),
+        bbox_to_anchor=(0.04, 0.6),
         loc="center left",
         frameon=True,
     )
@@ -119,10 +119,11 @@ for i in range(2):
     lines = []
 
     for em, marker, labels in zip(
-        [endmembers, endmembers_AA, endmembers_NMF, endmembers_CHEMMA],
-        ["*", "^", "P", "X"],
+        [endmembers, endmembers_AA, endmembers_NMF, endmembers_CHEMMA, endmembers_EDAA],
+        ["*", "^", "P", "X", "d"],
         [
             endmembers.index,
+            [" "] * n_endmembers,
             [" "] * n_endmembers,
             [" "] * n_endmembers,
             [" "] * n_endmembers,
@@ -158,11 +159,11 @@ for label, i in zip(["a", "b", "c", "d"], [0, 4, 5, 9]):
 
 fig.legend(
     handles=lines,
-    ncols=4,
-    title="              True SPGD-AA NMF CHEMMA",
+    ncols=5,
+    title="          True SPGD-AA NMF CHEMMA EDAA",
     markerfirst=False,
     loc="center right",
-    bbox_to_anchor=(0.99, 0.56),
+    bbox_to_anchor=(0.99, 0.58),
     handletextpad=0.4,
     columnspacing=0.9,
     labelspacing=0.3,
