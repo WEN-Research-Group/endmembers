@@ -39,6 +39,8 @@ gs = fig.add_gridspec(2, 2, height_ratios=[0.36, 1], hspace=1.5)
 for i in range(2):
     # Upper Panel
     dataset_name = ["noisefree", "noisy"][i]
+    # For additional synthetic data with different alpha
+    # dataset_name = ["alpha=2", "alpha=4"][i]
 
     synthetic_samples = pd.read_csv(f"data/synthetic/{dataset_name}_samples.csv")
     endmembers = pd.read_csv("data/synthetic/endmembers.csv", index_col=0)
@@ -172,4 +174,6 @@ fig.legend(
 
 gs.tight_layout(fig)
 fig.savefig("images/synthetic_results.pdf")
+# For additional synthetic data with different alpha
+# fig.savefig("images/synthetic_different_alpha_results.pdf")
 plt.show()

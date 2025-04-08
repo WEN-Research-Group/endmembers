@@ -1,5 +1,5 @@
 """
-Match CHEMMA endmembers to the field endmembers.
+Match CHEMMA endmembers to real ones.
 """
 
 import numpy as np
@@ -8,6 +8,7 @@ from endmember_utils import match_endmembers
 
 endmembers = pd.read_csv("data/synthetic/endmembers.csv", index_col=0)
 for dataset_name in ("noisefree", "noisy"):
+# for dataset_name in ("alpha=2", "alpha=4"):
     chemma_endmembers = np.loadtxt(
         f"results/synthetic/CHEMMA_{dataset_name}_endmembers_raw_output.csv", delimiter=","
     )
