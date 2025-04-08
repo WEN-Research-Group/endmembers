@@ -1,15 +1,14 @@
 """
-Apply SPGD-AA on synthetic data whose Dirichlet alpha = 2, 4. Visualize the results in 3D PC space.
+Show the results of NMF and SPGD-AA on synthetic data with shifted end-members. Visualize the results in 3D PC space.
 """
 
+import numpy as np
 import pandas as pd
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 import seaborn as sns
-from archetypes import AA
 from endmember_utils.plot import Scatter
-from endmember_utils.analysis import match_endmembers
 
 
 # Change default behavior of matplotlib
@@ -29,22 +28,6 @@ def plot_endmember_as_lines(axes, endmembers, **kwargs):
 
 # Default AA parameters
 
-random_state = 42
-
-# global parameters passed to all `archetypes.AA` in this notebook
-global_aa_params = {
-    "n_init": 10,  # number of initializations
-    "max_iter": 2000,  # maximum number of iterations
-    "tol": 1e-10,  # tolerance for convergence
-    "method_kwargs": {
-        "max_iter_optimizer": 25
-    },  # parameters for the optimization method
-    "init": "furthest_sum",  # efficient initialization by Morup and Hansen (2012)
-    "method": "pgd",  # NOTE: this option is necessary to use the SPGD method
-    "random_state": random_state,  # for reproducibility
-}
-
-
 # Start plotting
 # Panel a
 fig = plt.figure(figsize=(5.7, 6.8))
@@ -54,12 +37,16 @@ for i in range(2):
     # Upper Panel
     alpha_list = [2, 4]
     alpha = alpha_list[i]
-    dataset_name = f"alpha={alpha}"
+    dataset_name = f"alpha={alpha}_shifted"
 
     synthetic_samples = pd.read_csv(f"data/synthetic/{dataset_name}_samples.csv")
-    endmembers = pd.read_csv("data/synthetic/endmembers.csv", index_col=0)
-    endmembers_AA = AA(4, **global_aa_params).fit(synthetic_samples).archetypes_
-    endmembers_AA = match_endmembers(endmembers, endmembers_AA)
+    endmembers = pd.read_csv("data/synthetic/endmembers_shifted.csv", index_col=0)
+    endmembers_AA = pd.read_csv(
+        f"results/synthetic/AA_{dataset_name}_endmembers.csv", index_col=0
+    )
+    endmembers_NMF = pd.read_csv(
+        f"results/synthetic/NMF_{dataset_name}_endmembers.csv", index_col=0
+    )
 
     inner_gs = gs[0, i].subgridspec(2, 2, hspace=0, wspace=0)
     (ax1, ax2), (ax3, ax4) = inner_gs.subplots(sharex=True, sharey=True)
@@ -70,7 +57,7 @@ for i in range(2):
 
     upper_legend_elements = []
     for em, color, linestyle, alpha, label in zip(
-        [endmembers, endmembers_AA],
+        [endmembers, endmembers_AA, endmembers_NMF],
         linecolors := [
             "gray",
             default_palette[1],
@@ -79,7 +66,7 @@ for i in range(2):
         ],
         linestyles := ["-", "-.", "--", ":"],
         alphas := [0.6, 1, 0.8, 1],
-        labels := ["True", "SPGD-AA"],
+        labels := ["True", "SPGD-AA", "NMF"],
     ):
         plot_endmember_as_lines(
             axes, em, color=color, linestyle=linestyle, linewidth=1, alpha=alpha
@@ -101,12 +88,12 @@ for i in range(2):
 
     for ax in axes:
         ax.label_outer()
-        ax.set_ylim(0, 2.3)
+        ax.set_ylim(10, 12.3)
 
     fig.legend(
         handles=upper_legend_elements,
         ncols=2,
-        bbox_to_anchor=(0.04, 0.62),
+        bbox_to_anchor=(0.04, 0.57),
         loc="center left",
         frameon=True,
     )
@@ -140,7 +127,7 @@ for i in range(2):
     lines = []
 
     for em, marker, labels in zip(
-        [endmembers, endmembers_AA],
+        [endmembers, endmembers_AA, endmembers_NMF],
         ["*", "^", "P", "X"],
         [
             endmembers.index,
@@ -148,9 +135,13 @@ for i in range(2):
             [" "] * n_endmembers,
             [" "] * n_endmembers,
         ],
-    ):
+    ):  
+        try:
+            em_pca = pca.transform(em)
+        except ValueError:
+            em_pca = np.full((n_endmembers, ndim), np.nan)
         em_lines = scatter.plot_each_endmember(
-            pca.transform(em),
+            em_pca,
             marker=marker,
             colors=default_palette,
             markeredgecolor="black",
@@ -179,8 +170,8 @@ for label, i in zip(["a", "b", "c", "d"], [0, 4, 5, 9]):
 
 fig.legend(
     handles=lines,
-    ncols=2,
-    title="             True  SPGD-AA",
+    ncols=3,
+    title="       True   SPGD-AA   NMF",
     markerfirst=False,
     loc="center right",
     bbox_to_anchor=(0.88, 0.57),
@@ -191,5 +182,5 @@ fig.legend(
 )
 
 gs.tight_layout(fig)
-fig.savefig("images/synthetic_different_alpha_results.pdf")
+fig.savefig("images/synthetic_NMF_shifted.pdf")
 plt.show()

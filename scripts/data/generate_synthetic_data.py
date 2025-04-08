@@ -71,3 +71,15 @@ for alpha in [2, 4]:
     mixing_proportions.to_csv(
         data_dir / f"alpha={alpha}_mixing_proportions.csv", index=False
     )
+
+# Dirichlet alpha = 2 and 4, all dimensions in endmembers += 10
+endmembers_shifted = endmembers + 10
+endmembers_shifted.to_csv(data_dir / "endmembers_shifted.csv")
+for alpha in [2, 4]:
+    synthetic_samples, mixing_proportions = synthetic(
+        n_samples,
+        endmembers=endmembers_shifted,
+        random_state=random_state,
+        dirichlet_alpha=alpha,
+    )
+    synthetic_samples.to_csv(data_dir / f"alpha={alpha}_shifted_samples.csv", index=False)
