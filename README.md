@@ -2,7 +2,22 @@
 
 ## Introduction
 
-This repo is affiliated with the manuscript "**Inferring End-members from Geoscience Data using Simplex Projected Gradient Descent-Archetypal Analysis**" submitted to _JGR: Machine Learning and Computation_" in Dec, 2024. More information will be avaliable soon.
+This repo is affiliated with the paper "**Inferring End-members from Geoscience Data using Simplex Projected Gradient Descent-Archetypal Analysis**" published on _JGR: Machine Learning and Computation_", authored by Zanchenling Wang and Tao Wen: https://doi.org/10.1029/2024JH000540
+
+```bibtex
+@article{wang2025,
+  title = {Inferring End-Members from Geoscience Data Using Simplex Projected Gradient Descent-Archetypal Analysis},
+  author = {Wang, Zanchenling and Wen, Tao},
+  year = {2025},
+  journal = {Journal of Geophysical Research: Machine Learning and Computation},
+  volume = {2},
+  number = {2},
+  pages = {e2024JH000540},
+  issn = {2993-5210},
+  doi = {10.1029/2024JH000540},
+  langid = {english},
+}
+```
 
 In this work, we developed Simplex Projected Gardient Descent-Archetypal Analysis (SPGD-AA) to infer end-members from geoscience data of mixed materials. SPGD-AA is based on archetypal analysis (AA) ([Cutler and Breiman, 1994](https://doi.org/10.1080/00401706.1994.10485840) and [Mørup and Hansen, 2012](https://doi.org/10.1016/j.neucom.2011.06.033)) and fast unit simplex projection ([Condat 2016](https://doi.org/10.1007/s10107-015-0946-6)).
 
